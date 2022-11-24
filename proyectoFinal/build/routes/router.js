@@ -12,6 +12,7 @@ const getStudentsFiltered_js_1 = require("../handlers/student/getStudentsFiltere
 const checkLogin_js_1 = require("../handlers/student/checkLogin.js");
 const addReward_js_1 = require("../handlers/student/addReward.js");
 const getRewards_js_1 = require("../handlers/student/getRewards.js");
+const receiveReward_js_1 = require("../handlers/student/receiveReward.js");
 const router = express_1.default.Router();
 exports.router = router;
 router.post("/students", insertStudent_js_1.insertStudent);
@@ -20,4 +21,5 @@ router.get("/students/:id_student", getOneStudent_js_1.getOneStudent);
 router.get("/filtered", getStudentsFiltered_js_1.getStudentsFiltered);
 router.post("/login", checkLogin_js_1.checkLogin);
 router.post("/addreward", addReward_js_1.addReward);
+router.post("/receivereward", receiveReward_js_1.receiveReward);
 router.get("/rewards", getRewards_js_1.getRewards);
