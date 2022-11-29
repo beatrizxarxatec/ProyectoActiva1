@@ -1,5 +1,10 @@
 use proyectoFinal;
 
+insert into student (name, first_surname, email_personal, phone_number, description, city, zip_code)
+values('pepe', 'martinez', 'pepe@host.com', '683468733', 'user', 'castellon', '12001');
+
+select * from student;
+
 insert into user (email, password, role)
 values ('juan@host.com', 'mypass', 'user');
 
@@ -14,7 +19,7 @@ values ('toni@host.com', 'mypass', 'user');
 
 
 
--- insert into student (name, first_surname, email_personal, phone_number, description, city, zip_code)
+
 -- values('pepe', 'martinez', 'pepe@host.com', '68346873', 'user', 'castellon', '12001');
 
 -- select * from reward;

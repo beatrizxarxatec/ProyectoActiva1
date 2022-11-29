@@ -29,6 +29,7 @@ h2 {
   width: 99vw;
   justify-content: space-evenly;
   border-radius: 7vw 7vw 0vw 0vw;
+  z-index: 90;
 }
 
 
@@ -110,7 +111,11 @@ hr {
 
 #numberContainerqty {
   display: flex;
-  padding-left: 16vw;
+  /*padding-left: 16vw;*/
+  overflow: hidden; 
+  z-index: 1;
+  padding-left: 8.5vw;
+  position: relative;
 }
 
 #sendText {
@@ -256,9 +261,11 @@ select {
     margin-left: -5vw;
     justify-content: space-evenly;
     border-radius: 7vw 7vw 0vw 0vw;
+    z-index: 90;
   }
   #menu {
     justify-content: center;
+    z-index: 90;
   }
 
   #menu a img {
@@ -371,9 +378,9 @@ select {
     width: 50%;
   }
 
-  #numberContainerqty {
+ /* #numberContainerqty {
     padding-left: 8.5vw;
-  }
+  }*/
 
   #sendPoints {
     height: 6vh;
@@ -398,7 +405,8 @@ select {
     justify-content: center;
     border-radius: 0vw;
     background-color: rgb(7, 29, 73);
-  box-shadow: 5px -5px 20px rgb(255, 255, 255);
+    box-shadow: 5px -5px 20px rgb(255, 255, 255);
+    z-index: 90;
   }
 
   .menuFoot p {
