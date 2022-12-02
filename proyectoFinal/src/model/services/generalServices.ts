@@ -6,7 +6,7 @@ import { Student } from "../types/student.js";
 
 // CONSULTAS A LA BD
 function checkUserLogin(user: User, callback: Function) {
-  const queryString = "SELECT * FROM user WHERE email = ? AND password = ?"; // ? parametro
+  const queryString = "SELECT s.id, s.email_personal FROM user u inner join student s on s.email_personal = u.email where email = ? AND password = ?"; // ? parametro
   db.query(queryString, [user.email, user.password], (err, result) => {
     let isOk = true;
     let studentId = 0;

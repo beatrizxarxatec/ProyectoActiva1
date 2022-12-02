@@ -6,6 +6,10 @@ import { getStudentsFiltered } from '../handlers/student/getStudentsFiltered.js'
 import { checkLogin } from '../handlers/student/checkLogin.js';
 import { addReward } from '../handlers/student/addReward.js';
 import { getRewards } from '../handlers/student/getRewards.js';
+import { getReceivedRewards } from '../handlers/student/getReceivedRewards.js';
+import { getRankingTop5 } from '../handlers/student/getRanking.js';
+import { getUserRankingPosition } from '../handlers/student/getUserRankingPosition.js';
+import { getSocialHistory } from '../handlers/student/getSocialHistory.js';
 
 const router = express.Router();
 
@@ -22,5 +26,13 @@ router.post("/login", checkLogin);
 router.post("/addreward", addReward);
 
 router.get("/rewards", getRewards);
+
+router.get("/received", getReceivedRewards);
+
+router.get("/top5", getRankingTop5);
+
+router.get("/currentpos", getUserRankingPosition);
+
+router.get("/social", getSocialHistory);
 
 export {router};

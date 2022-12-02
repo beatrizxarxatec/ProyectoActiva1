@@ -28,4 +28,15 @@ async function createSentHistory() {
     document.getElementById("elementosenviados").innerHTML = rewardsString;
 }
 
-window.addEventListener('load', createSentHistory); 
+function loadAll(){
+    createSentHistory();
+    var data1 = {
+        series:[
+            {value: 30, name: "Enviados", /* className: "pieChartEnv", */ meta: 'Meta One' },
+            {value: 70, name: "Recibidos", /* className: "pieChartRec", */ meta: 'Meta Two'},
+        ]
+      };
+      new Chartist.Pie('#pieChart2', data1);
+}
+
+window.addEventListener('load', loadAll); 

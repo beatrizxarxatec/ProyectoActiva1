@@ -75,6 +75,18 @@ h2 {
   background-image: conic-gradient(rgba(7, 29, 73)0% 30%, rgba(224, 0, 77)0%);
 }
 
+.pieChartEnv{
+  background-color: rgba(224, 0, 77);
+  stroke: rgba(224, 0, 77);
+  color: rgba(224, 0, 77);
+}
+
+.pieChartRec{
+  background-color: rgba(7, 29, 73);
+  stroke: rgba(7, 29, 73);
+  color: rgba(7, 29, 73);
+}
+
 #numberpie2 {
   color: white;
   text-align: center;

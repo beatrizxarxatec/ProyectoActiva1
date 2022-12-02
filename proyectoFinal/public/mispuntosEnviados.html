@@ -10,6 +10,12 @@
   <script src="./scripts/doLogout.js" async></script>
   <script src="./scripts/createStudentOptions.js" async></script>
   <script src="./scripts/createSentHistory.js" async></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/chartist/0.11.4/chartist.js"
+    integrity="sha512-jG3l4wynNj06R0w9JW1WZaCDPvhqa4yz8EAVjYzWqibarcn8JeFDyNtUytcr7Idx+laN7OQDaoDNmUAI4nB1qA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chartist/0.11.4/chartist.min.css"
+    integrity="sha512-V0+DPzYyLzIiMiWCg3nNdY+NyIiK9bED/T1xNBj08CaIUyK3sXRpB26OUCIzujMevxY9TRJFHQIxTwgzb0jVLg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
@@ -42,9 +48,10 @@
         <p class="pieText">DISPONIBLES<br> ¡Listos para enviar!</p>
       </div>
       <div>
-        <div class="piechart2">
+        <!-- <div class="piechart2">
           <div id="numberpie2">820</div>
-        </div>
+        </div> -->
+        <div id="pieChart2"></div>
         <p class="pieText">TOTAL<br> <span id="sendText">Enviados</span> | <span id="receibedText">Recibidos</span>
         </p>
       </div>
