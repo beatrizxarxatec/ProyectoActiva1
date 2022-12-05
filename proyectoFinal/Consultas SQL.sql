@@ -8,7 +8,7 @@
 -- FROM student as s
 -- WHERE s.second_surname is not null and s.email_personal like '%@gmail.com'
 
-use proyecto_final;
+use proyectoFinal;
 
 insert into user (email, password, role)
 values ('juan@host.com', 'mypass', 'user')

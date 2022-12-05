@@ -1,2 +1,2 @@
-SELECT * FROM proyecto_final.user
+SELECT * FROM proyectoFinal.user
 

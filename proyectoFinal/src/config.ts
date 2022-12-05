@@ -5,8 +5,8 @@ const PORT=3000;
 const db = mysql.createConnection({
   host: "localhost",
   user: "root",
-  password: "MySQL22",
-  database: "proyecto_final"
+  password: "3007",
+  database: "proyectoFinal"
 });
 
 export {PORT, db};
