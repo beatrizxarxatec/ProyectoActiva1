@@ -55,7 +55,7 @@ function findRewards(currentUserId: number, callback: Function) {
 }
 
 function findReceivedRewards(currentUserId: number, callback: Function) {
-  const queryString = "select r.id_user_sender, r.id_user_rewarded, r.xp_points, r.description, r.date, s.name, s.first_surname from reward as r inner join student as s on r.id_user_rewarded = s.id where r.id_user_rewarded = ? order by date DESC";
+  const queryString = "select r.id_user_sender, r.id_user_rewarded, r.xp_points, r.description, r.date, s.name, s.first_surname from reward as r inner join student as s on r.id_user_sender = s.id where r.id_user_rewarded = ? order by date DESC";
   db.query(queryString, [currentUserId], (err, result) => {
     if (err) callback(err, null);
     const rewards = result;
