@@ -9,6 +9,7 @@
   <title>Mis puntos</title>
   <script src="./scripts/doLogout.js" async></script>
   <script src="./scripts/createStudentOptions.js" async></script>
+  <script src="./scripts/createReceivedHistory.js" async></script>
 </head>
 
 <body>
@@ -22,7 +23,7 @@
       <p>Ranking</p>
     </div>
     <div class="menuFoot">
-      <a href="miperfil.html"><img src="public/iconosMenu/mi-perfil-gray.svg" alt="perfil"></a>
+      <a href="#"><img src="public/iconosMenu/mi-perfil-gray.svg" alt="perfil"></a>
       <p>Mi perfil</p>
     </div>
     <div class="menuFoot">
@@ -30,6 +31,7 @@
       <p>Salir</p>
     </div>
   </div>
+
   <div>
     <h1 class="center">MIS PUNTOS</h1>
     <hr />
@@ -49,8 +51,11 @@
       </div>
     </div>
   </div>
+
+  <!-- Aqui no se debería de enviar puntos-->
+
   <div id="enviarPuntos">
-    <h2 class="center">RECIBIR PUNTOS</h2>
+    <h2 class="center">ENVIAR PUNTOS</h2>
     <hr />
     <div id="fondo">
       <p class="center">Alumnos Xarxatec Activa 2023</p>
@@ -65,6 +70,7 @@
       </div>
     </div>
   </div>
+
   <div id="miHistorial">
     <h2 class="center">MI HISTORIAL</h2>
     <hr />
@@ -73,47 +79,51 @@
         <button id="sendButton">ENVIADOS</button></a>
       <button id="receivedButton"><u>RECIBIDOS</u></button>
     </div>
-    <div class="pAlign">
-      <div><span class="pointsBlue"><b>100</b></span> PUNTOS RECIBIDOS
-        30/07/2023</div>
-      <p> No estoy diciendo que sea Batman, sólo digo que nadie nos ha visto a batman y a mi en la misma habitación. Soy
-        la noche!</p>
-      <p> de parte de <b>Batman</b></p>
-    </div>
-    <hr class="hrHistory" />
-    <div class="pAlign">
-      <div><span class="pointsBlue"><b>20</b></span> PUNTOS RECIBIDOS
-        30/09/2023</div>
-      <br>
-      Al final resulta que no solo era yo el rey ^ - ^<br>
-      <p>de parte de <b>Elvis no Presley</b></p>
-    </div>
-    <hr class="hrHistory" />
-    <div class="pAlign">
-      <div><span class="pointsBlue"><b>30</b></span> PUNTOS RECIBIDOS
-        30/11/2023</div>
-      <br>
-      El mqtt nos dio la señal y el sensor se encendio, así que coavabunga<br>
-      <p> de parte de <b>Arduino raspberry pi</b></p>
-    </div>
 
-    <hr class="hrHistory" />
-    <div class="pAlign">
-      <div><span class="pointsBlue"><b>90</b></span> PUNTOS RECIBIDOS
-        30/11/2023</div>
-      <br>
-      Gracias a tu separación poco inusual ganamos al fijarse el jurado en ellas<br>
-      <p> de parte de <b>Pocah-juntas </b></p>
-    </div>
+    <div id="elementosrecibidos">
+      <div class="pAlign">
+        <div><span class="pointsBlue"><b>100</b></span> PUNTOS RECIBIDOS
+          30/07/2023</div>
+        <p> No estoy diciendo que sea Batman, sólo digo que nadie nos ha visto a batman y a mi en la misma habitación.
+          Soy
+          la noche!</p>
+        <p> de parte de <b>Batman</b></p>
+      </div>
+      <hr class="hrHistory" />
+      <div class="pAlign">
+        <div><span class="pointsBlue"><b>20</b></span> PUNTOS RECIBIDOS
+          30/09/2023</div>
+        <br>
+        Al final resulta que no solo era yo el rey ^ - ^<br>
+        <p>de parte de <b>Elvis no Presley</b></p>
+      </div>
+      <hr class="hrHistory" />
+      <div class="pAlign">
+        <div><span class="pointsBlue"><b>30</b></span> PUNTOS RECIBIDOS
+          30/11/2023</div>
+        <br>
+        El mqtt nos dio la señal y el sensor se encendio, así que coavabunga<br>
+        <p> de parte de <b>Arduino raspberry pi</b></p>
+      </div>
 
-    <hr class="hrHistory" />
-    <div class="pAlign">
-      <div><span class="pointsBlue"><b>60</b></span> PUNTOS RECIBIDOS
-        30/11/2023</div>
-      <br>
-      Gracias por la limpieza, ahora podre moverme en mi cuarto con total libertad sin golpear latas y otros
-      enseres!<br>
-      <p> de parte de <b>Marie Kond</b> </p>
+      <hr class="hrHistory" />
+      <div class="pAlign">
+        <div><span class="pointsBlue"><b>90</b></span> PUNTOS RECIBIDOS
+          30/11/2023</div>
+        <br>
+        Gracias a tu separación poco inusual ganamos al fijarse el jurado en ellas<br>
+        <p> de parte de <b>Pocah-juntas </b></p>
+      </div>
+
+      <hr class="hrHistory" />
+      <div class="pAlign">
+        <div><span class="pointsBlue"><b>60</b></span> PUNTOS RECIBIDOS
+          30/11/2023</div>
+        <br>
+        Gracias por la limpieza, ahora podre moverme en mi cuarto con total libertad sin golpear latas y otros
+        enseres!<br>
+        <p> de parte de <b>Marie Kond</b> </p>
+      </div>
     </div>
 
     <br><br><br><br>

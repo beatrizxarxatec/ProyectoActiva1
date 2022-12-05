@@ -5,139 +5,175 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style/styleranking.css">
-    <title>Ranking Puntos Xarxatec Activa</title>
+    <link rel="stylesheet" href="style/miperfil.css">
+    <title>Mi perfil</title>
     <script src="./scripts/doLogout.js" async></script>
 </head>
 
 <body>
-
-    <!--
-
-        COPIADO DEL RANKING, OJO!!
-
-    -->
     <nav id="menu">
         <div class="menuFoot">
-            <a href="mispuntosEnviados.html"><img src="public/iconosMenu/mis-puntos-gray.svg" alt="points"></a>
+            <a href="mispuntosEnviados.html"><img src="../public/imagenes/mis-puntos-gray.svg" alt="points"></a>
             <p>Mis puntos</p>
         </div>
         <div class="menuFoot">
-            <a href="ranking.html"><img src="public/iconosMenu/ranking-red.svg" alt="ranking"></a>
-            <p class="red">Ranking</p>
+            <a href="ranking.html"><img src="./public/imagenes/ranking-gray"alt="ranking"></a>
+            <p>Ranking</p>
         </div>
         <div class="menuFoot">
-            <a href="miperfil.html"><img src="public/iconosMenu/mi-perfil-gray.svg" alt="perfil"></a>
-            <p>Mi perfil</p>
+            <a href="miperfil.html"><img src="../public/imagenes/login-icono-usuario.png" alt="perfil"></a>
+            <p class="red">Mi perfil</p>
         </div>
         <div class="menuFoot">
-            <a id="logout" href="#"><img src="public/iconosMenu/logout-gray.svg" alt="exit"></a>
+            <a id="logout" href="#"><img src="../public/imagenes/logout-gray.svg" alt="exit"></a>
             <p>Salir</p>
         </div>
     </nav>
+
+
     <div class="column">
+        <div class="Juan">
+            <div id="rankingColumn">
+                <h1>DATOS PERSONALES</h1>
+                <hr id="rankingTitle">
+                <!--<div class="rankingList1"> -->
+                    <p><label for="name">Nombre:</label>
+                          <span>Juan</span>
+                    </p>
+                   
+                    <p><label for="surname">Apellido:</label>
+                        <span>Martinez</span>
+                    </p>
+
+                    <p><label for="second_surname">Segundo apellido:</label>
+                        <span>Ortega</span>
+                    </p>
+
+                    <p><label for="email">Email personal:</label>
+                        <span>juan@host.com</span>
+                    </p>
+
+                    <p><label for="email">Email Activa:</label>
+                        <span>juan@xarxatecactiva.com</span>
+                    </p>
+
+                    <p><label for="phone">Teléfono:</label>
+                        <span>683468731</span>
+                    </p>
+
+                    <p><label for="city">Ciudad:</label>
+                        <span>Castellón</span>
+                    </p>
+
+                    <p><label for="zip_code">Código postal:</label>
+                        <span>12002</span>
+                    </p>
+                    <hr>
+                </div>
+                <!--<hr id="rankingHr" />
+                <div class="rankingList1">
+                    <p class="rankingPositionPodium item1">2</p>
+                    <p class="item2">KATY P.</p>
+                    <p class="item3"><em class="red">20/06/2022</em></p>
+                    <p class="item4"><span id="pointSize"><b>1250</b></span> PUNTOS ACTIVA</p>
+                </div>
+                <hr id="rankingHr" />
+                <div class="rankingList1">
+                    <p class="rankingPositionPodium item1">3</p>
+                    <p class="item2">BRITNEY S.</p>
+                    <p class="item3"><em class="red">13/01/2022</em></p>
+                    <p class="item4"><span id="pointSize"><b>1250</b></span> PUNTOS ACTIVA</p>
+                </div>
+                <hr id="rankingHr" />
+                <div class="rankingList1">
+                    <p class="rankingPositionPodium item1">4</p>
+                    <p class="item2">Pedro S</p>
+                    <p class="item3"><em class="red">13/01/2022</em></p>
+                    <p class="item4"><span id="pointSize"><b>1250</b></span> PUNTOS ACTIVA</p>
+                </div>
+                <hr id="rankingHr" />-->
+            </div>
+        </div>
+    </div>
+    <!--<div class="column">
         <div id="rankingColumn">
-            <h1>RANKING</h1>
+            <h1>PUNTOS MAS RECIENTES</h1>
             <hr id="rankingTitle" />
             <div class="rankingList1">
                 <p class="rankingPositionPodium item1">1</p>
                 <p class="item2">HOMER S.</p>
-                <p class="item3"><em class="red">TOCANDO EL CIELO</em></p>
+                <p class="item3"><em class="red">20/11/2022</em></p>
                 <p class="item4"><span id="pointSize"><b>1250</b></span> PUNTOS ACTIVA</p>
             </div>
             <hr id="rankingHr" />
             <div class="rankingList1">
                 <p class="rankingPositionPodium item1">2</p>
                 <p class="item2">KATY P.</p>
-                <p class="item3"><em class="red">EN LA CRESTA DE LA OLA</em></p>
+                <p class="item3"><em class="red">20/06/2022</em></p>
                 <p class="item4"><span id="pointSize"><b>1250</b></span> PUNTOS ACTIVA</p>
             </div>
             <hr id="rankingHr" />
             <div class="rankingList1">
                 <p class="rankingPositionPodium item1">3</p>
                 <p class="item2">BRITNEY S.</p>
-                <p class="item3"><em class="red">SABOREANDO EL PODIO</em></p>
+                <p class="item3"><em class="red">13/01/2022</em></p>
                 <p class="item4"><span id="pointSize"><b>1250</b></span> PUNTOS ACTIVA</p>
             </div>
             <hr id="rankingHr" />
             <div class="rankingList1">
-                <p class="rankingPositionPodium2 item1">4</p>
-                <p class="item2">MARIE C. </p>
-                <p class="item3"><em class="blue">FUTURO PROMETEDOR</em></p>
+                <p class="rankingPositionPodium item1">4</p>
+                <p class="item2">Pedro S</p>
+                <p class="item3"><em class="red">13/01/2022</em></p>
                 <p class="item4"><span id="pointSize"><b>1250</b></span> PUNTOS ACTIVA</p>
             </div>
             <hr id="rankingHr" />
-            <div class="rankingList1">
-                <p class="rankingPositionPodium2 item1">5</p>
-                <p class="item2">MARLON B.</p>
-                <p class="item3"><em class="blue">EN EL TOP 5</em></p>
-                <p class="item4"><span id="pointSize"><b>1250</b></span> PUNTOS ACTIVA</p>
-            </div>
-            <hr id="rankingHr" />
-        </div>
+        </div>-->
+        
         <div>
             <div id="rankingCup">
                 <div class="center">
-                    <img id="cup" src="public/iconosMenu/ranking-blue.svg" alt="una copa"></div>
-                <div id="myPosition">TU PUESTO ACTUAL <b id="myPositionNumber">7</b> <cite id="myTittle"> LLEGANDO A LA CIMA</cite>
+                    <img id="imagenperfil" src="../public/imagenes/perfil.jpg" alt="Foto de perfil"></div>
                 </div>
             </div>
         </div>
     </div>
-    <div id="socialColumns">
-        <h2 class="center">HISTORIAL SOCIAL</h2>
+    <!--<div id="socialColumns">
+        <h2 class="center">DATOS PERSONALES</h2>
         <hr />
         <div class="pAlign">
-            <div id="headerPoints"><span class="pointsRed"><b>100</b> PuntosActiva </span>Ganó
+            <div id="headerPoints"><span class="pointsRed"><b>NOMBRE</b></span>
                 <b>MARLON BRANDON</b></div>
             <br>
-            Sin ti no hubiera podido conseguirlo tqm bs7s, Un abrazo!.<br>
-            <p>de parte de <b>Elvis no Presley</b>
         </div>
         <hr id="rankingHr" />
         <div class="pAlign">
-            <div id="headerPoints"><span class="pointsRed"><b>50</b> PuntosActiva </span>Ganó
-                <b>PICKLE RICK</b></div>
+            <div id="headerPoints"><span class="pointsRed"><b>TELÉFONO</b> </span>
+                <b>682289761</b></div>
             <br>
-            Si dejearas de beber serías un buen abuelo.<br>
-            <p>de parte de <b>Morty</b>
         </div>
         <hr id="rankingHr" />
         <div class="pAlign">
-            <div id="headerPoints"><span class="pointsRed"><b>75</b> PuntosActiva </span>Ganó
-                <b>PEPPE RONI</b></div>
-            <br>
-            Con pizza en todos los trabajos salen "redondos" (K).<br>
-            <p>de parte de <b>Lydia Blanco</b>
+            <div id="headerPoints"><span class="pointsRed"><b>CORREO</b></span>
+                <b>marlon@xarxatecactiva.com</b></div>
         </div>
         <hr id="rankingHr" />
         <div class="pAlign">
-            <div id="headerPoints"><span class="pointsRed"><b>150</b> PuntosActiva </span>Ganó
-                <b>MARIE KONDO</b></div>
-            <br>
-            Al ordenar tu css encontraste la clave del exito en tu corazón. <br>
-            <p>de parte de <b>Marie Curie</b>
+            <div id="headerPoints"><span class="pointsRed"><b>ESTUDIOS</b> </span>
+                <b>GRADUADA EN FINANZAS</b></div>
         </div>
         <hr id="rankingHr" />
         <div class="pAlign">
-            <div id="headerPoints"><span class="pointsRed"><b>25</b> PuntosActiva </span>Ganó
-                <b>KARLOS ARGUIÑANO</b></div><br> ¿Cómo les llaman los caníbales a los paracaidistas?", "Tocinitos
-            de
-            cielo".
+            <div id="headerPoints"><span class="pointsRed"><b>EXPERIENCIA </b></span>
+                <b>DIRECTORA DE BANCO</b></div><br> 
             <br>
-            <p>de parte de <b>Hannibal Lecter</b>
         </div>
         <hr id="rankingHr" />
         <div class="pAlign">
-            <div id="headerPoints"><span class="pointsRed"><b>175</b> PuntosActiva </span>Ganó
-                <b>CLARA</b></div>
-            <br>
-            Muchas gracias por aCLARArme la duda de bases de datos,
-            Sin niebla todo está más claro.<br>
-            <p>de parte de <b>HEIDI</b>
+            <div id="headerPoints"><span class="pointsRed"><a href="curriculumvitae.html"><b>PINCHA AQUÍ PARA SUBIR TU CV </b></span></a>
         </div>
-        <br><br><br>
+        </div> --> 
     </div>
 </body>
 
 </html>
+                

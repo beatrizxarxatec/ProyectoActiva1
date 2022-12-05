@@ -12,4 +12,10 @@ use proyectoFinal;
 -- insert into user (email, password, role)
 -- values ('carla@host.com', 'mypass', 'user');
 
+-- insert into user (email, password, role)
+-- values ('pepe@host.com', 'mypass', 'user');
+
+-- insert into user (email, password, role)
+-- values ('lola@host.com', 'mypass', 'user');
+
 select * from user;

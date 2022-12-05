@@ -16,6 +16,18 @@ async function createReceivedHistory(){
             <div>
                 <span class="pointsRed"><b>${received.xp_points}<b></span> PUNTOS RECIBIDOS ${theDate}
             </div>
-        </div>`
+        </div>
+
+        <p> ${reward.description} </p>
+            <p> para <b>${reward.name} ${reward.first_surname}</b></p>
+        </div>
+        <hr id="hrHistory"/>
+        </p>
+        `;
+        rewardsString += rewardItem;
+        xp_sent += reward.xp_points;
     }
+    document.getElementById("elementosrecibidos").innerHTML = rewardsString;
 }
+
+window.addEventListener('load', createReceiveHistory); 

@@ -22,13 +22,24 @@ function addNewReward(reward: Reward, callback: Function) {
 };
 
 function findRewards(currentUserId: number, callback: Function) {
-  const queryString = "select r.id_user_sender, r.id_user_rewarded, r.xp_points, r.description, r.date, s.name, s.first_surname from reward as r inner join student as s on r.id_user_rewarded = s.id where r.id_user_sender = ?";
+  const queryString = "select r.id_user_sender, r.id_user_rewarded, r.xp_points, r.description, r.date, s.name, s.first_surname from reward as r inner join student as s on r.id_user_rewarded = s.id where r.id_user_sender = ? order by date DESC";
   db.query(queryString, [currentUserId], (err, result) => {
     if (err) callback(err, null);
     const rewards = result;
     callback(null, rewards);
   })
 }
+
+
+function findReceiveRewards(currentUserId: number, callback: Function) {
+  const queryString = "select r.id_user_sender, r.id_user_rewarded, r.xp_points, r.description, r.date, s.name, s.first_surname from reward as r inner join student as s on r.id_user_rewarded = s.id where r.id_user_sender = ? order by date DESC";
+  db.query(queryString, [currentUserId], (err, result) => {
+    if (err) callback(err, null);
+    const rewards = result;
+    callback(null, rewards);
+  })
+}
+
 
 function createStudent(student: Student, callback: Function) {
   const queryString = "INSERT INTO student (name, first_surname, second_surname, email_personal, email_activa, phone_number, zip_code) VALUES (?, ?, ?, ?, ?, ?, ?)"
@@ -79,4 +90,4 @@ function findStudentsFiltered(callback: Function) {
   })
 }
 
-export { addNewReward, findRewards, createStudent, findAllStudents, findOneStudent, findStudentsFiltered };
+export { addNewReward, findRewards, createStudent, findAllStudents, findOneStudent, findStudentsFiltered, findReceiveRewards};

@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.findStudentsFiltered = exports.findOneStudent = exports.findAllStudents = exports.createStudent = exports.findRewards = exports.addNewReward = void 0;
+exports.findReceiveRewards = exports.findStudentsFiltered = exports.findOneStudent = exports.findAllStudents = exports.createStudent = exports.findRewards = exports.addNewReward = void 0;
 const config_js_1 = require("../../config.js");
 function addNewReward(reward, callback) {
     const queryString = "INSERT INTO reward (id_user_sender, id_user_rewarded, xp_points, date, description) VALUES (?, ?, ?, ?, ?)";
@@ -17,7 +17,7 @@ function addNewReward(reward, callback) {
 exports.addNewReward = addNewReward;
 ;
 function findRewards(currentUserId, callback) {
-    const queryString = "select r.id_user_sender, r.id_user_rewarded, r.xp_points, r.description, r.date, s.name, s.first_surname from reward as r inner join student as s on r.id_user_rewarded = s.id where r.id_user_sender = ?";
+    const queryString = "select r.id_user_sender, r.id_user_rewarded, r.xp_points, r.description, r.date, s.name, s.first_surname from reward as r inner join student as s on r.id_user_rewarded = s.id where r.id_user_sender = ? order by date DESC";
     config_js_1.db.query(queryString, [currentUserId], (err, result) => {
         if (err)
             callback(err, null);
@@ -26,6 +26,16 @@ function findRewards(currentUserId, callback) {
     });
 }
 exports.findRewards = findRewards;
+function findReceiveRewards(currentUserId, callback) {
+    const queryString = "select r.id_user_sender, r.id_user_rewarded, r.xp_points, r.description, r.date, s.name, s.first_surname from reward as r inner join student as s on r.id_user_rewarded = s.id where r.id_user_sender = ? order by date DESC";
+    config_js_1.db.query(queryString, [currentUserId], (err, result) => {
+        if (err)
+            callback(err, null);
+        const rewards = result;
+        callback(null, rewards);
+    });
+}
+exports.findReceiveRewards = findReceiveRewards;
 function createStudent(student, callback) {
     const queryString = "INSERT INTO student (name, first_surname, second_surname, email_personal, email_activa, phone_number, zip_code) VALUES (?, ?, ?, ?, ?, ?, ?)";
     config_js_1.db.query(queryString, [student.name, student.firstSurname, student.secondSurname, student.personalEmailAddress, student.activaEmailAddress, student.phoneNumber, student.zipCode], (err, result) => {

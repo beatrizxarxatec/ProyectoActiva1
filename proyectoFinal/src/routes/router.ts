@@ -6,7 +6,7 @@ import { getStudentsFiltered } from '../handlers/student/getStudentsFiltered.js'
 import { checkLogin } from '../handlers/student/checkLogin.js';
 import { addReward } from '../handlers/student/addReward.js';
 import { getRewards } from '../handlers/student/getRewards.js';
-import {receiveReward} from '../handlers/student/receiveReward.js'
+import { getReceiveRewards } from '../handlers/student/getReceivedReward.js';
 
 const router = express.Router();
 
@@ -22,7 +22,7 @@ router.post("/login", checkLogin);
 
 router.post("/addreward", addReward);
 
-router.post("/receivereward", receiveReward);
+router.post("/receivereward", getReceiveRewards);
 
 router.get("/rewards", getRewards);
 
