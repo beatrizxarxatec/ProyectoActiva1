@@ -28,15 +28,23 @@ async function createSentHistory() {
     document.getElementById("elementosenviados").innerHTML = rewardsString;
 }
 
-function loadAll(){
+// Creacion del grafico dinamico
+function loadAll() {
     createSentHistory();
     var data1 = {
-        series:[
-            {value: 30, name: "Enviados", /* className: "pieChartEnv", */ meta: 'Meta One' },
-            {value: 70, name: "Recibidos", /* className: "pieChartRec", */ meta: 'Meta Two'},
+        series: [
+            { value: 350, name: "Enviados", className: "pieChartEnv",   meta: 'Meta One' },
         ]
-      };
-      new Chartist.Pie('#pieChart2', data1);
+    };
+    new Chartist.Pie('#pieChart1', data1, {classNames:{label: "numberPie"}});
+
+    var data2 = {
+        series: [
+            { value: 30, name: "Enviados", className: "pieChartEnv",   meta: 'Meta One' },
+            { value: 70, name: "Recibidos", className: "pieChartRec",  meta: 'Meta Two' },
+        ]
+    };
+    new Chartist.Pie('#pieChart2', data2, {classNames:{label: "numberPie"}});
 }
 
 window.addEventListener('load', loadAll); 

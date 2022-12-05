@@ -4,6 +4,35 @@
   font-family: 'Rubik', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
+.ct-series-a .ct-slice-donut {
+  stroke:green;
+  fill:green;
+}
+.ct-series-b .ct-slice-donut {
+  stroke: blue;
+  fill: blue;
+}
+
+.pieChartEnv{
+  background-color: rgba(224, 0, 77);
+  stroke: rgba(224, 0, 77);
+  color: rgba(224, 0, 77);
+  fill:rgba(224, 0, 77) ;
+}
+
+.pieChartRec{
+  background-color: rgba(7, 29, 73);
+  stroke: rgba(7, 29, 73);
+  color: rgba(7, 29, 73);
+  fill: rgba(7, 29, 73);
+}
+
+.registro{
+  border: none;
+  border-radius: 0px;
+  width:  unset;
+}
+
 body {
   color: grey;
   font-size: 3vw;
@@ -38,11 +67,12 @@ body {
   height: 10vw;
   width: 30vw;
   font-size: 3vw;
+ 
 }
 
 #buttonEntry {
   text-decoration: none;
-  color: white;
+  color: black;
 }
 
 input,

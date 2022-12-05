@@ -3,6 +3,21 @@
   font-family: 'Rubik', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
+.pieChartEnv {
+  stroke: rgba(224, 0, 77);
+  fill: rgba(224, 0, 77);
+}
+
+.pieChartRec {
+  stroke: rgba(7, 29, 73);
+  fill: rgba(7, 29, 73);
+}
+
+.numberPie {
+  fill: white;
+  font-size: 5vw;
+}
+
 body {
   color: grey;
   font-size: 3vw;
@@ -20,6 +35,7 @@ h2 {
   font-weight: 10;
   margin-bottom: 2%;
 }
+
 #menu {
   display: flex;
   position: fixed;
@@ -67,24 +83,18 @@ h2 {
   background-image: conic-gradient(rgba(224, 0, 77)0% 100%);
 }
 
-.piechart2 {
+#pieChart1 {
   margin-top: 2vh;
   width: 30vw;
   height: 30vw;
   border-radius: 50%;
-  background-image: conic-gradient(rgba(7, 29, 73)0% 30%, rgba(224, 0, 77)0%);
 }
 
-.pieChartEnv{
-  background-color: rgba(224, 0, 77);
-  stroke: rgba(224, 0, 77);
-  color: rgba(224, 0, 77);
-}
-
-.pieChartRec{
-  background-color: rgba(7, 29, 73);
-  stroke: rgba(7, 29, 73);
-  color: rgba(7, 29, 73);
+#pieChart2 {
+  margin-top: 2vh;
+  width: 30vw;
+  height: 30vw;
+  border-radius: 50%;
 }
 
 #numberpie2 {
@@ -258,6 +268,7 @@ select {
   body {
     font-size: 1.5vw;
   }
+
   #menu {
     display: flex;
     position: fixed;
@@ -269,6 +280,7 @@ select {
     justify-content: space-evenly;
     border-radius: 7vw 7vw 0vw 0vw;
   }
+
   #menu {
     justify-content: center;
   }
@@ -316,7 +328,13 @@ select {
     height: 10vw;
   }
 
-  .piechart2 {
+  #pieChart1 {
+    margin: auto;
+    width: 10vw;
+    height: 10vw;
+  }
+
+  #pieChart2 {
     margin: auto;
     width: 10vw;
     height: 10vw;
@@ -324,6 +342,11 @@ select {
 
   #numberpie2,
   #numberpie1 {
+    font-size: 2vw;
+  }
+
+  .numberPie {
+    fill: white;
     font-size: 2vw;
   }
 
@@ -396,7 +419,8 @@ select {
 
 @media only screen and (min-width: 1280px) {
 
-  h1,h2 {
+  h1,
+  h2 {
 
     margin-top: 5vw;
   }
@@ -405,12 +429,12 @@ select {
     display: flex;
     position: fixed;
     top: 0vw;
-    width:100vw;
+    width: 100vw;
     height: 8vw;
     justify-content: center;
     border-radius: 0vw;
     background-color: rgb(7, 29, 73);
-  box-shadow: 5px -5px 20px rgb(255, 255, 255);
+    box-shadow: 5px -5px 20px rgb(255, 255, 255);
   }
 
   .menuFoot p {
@@ -419,6 +443,7 @@ select {
   }
 
 }
+
 /*360×640 
 768x
 1280*/
