@@ -1,7 +1,7 @@
 import { User } from "../types/User.js";
 import { db } from "../../config.js";
-import { OkPacket, RowDataPacket } from "mysql2";
-import { ChangePassData, LoginResult } from "../types/Auth.js";
+import { RowDataPacket } from "mysql2";
+import { LoginResult } from "../types/Auth.js";
 import { Student } from "../types/student.js";
 
 // CONSULTAS A LA BD
