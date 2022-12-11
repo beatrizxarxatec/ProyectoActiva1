@@ -1,5 +1,3 @@
-let xp_sent = 0;
-
 async function createSocialHistory() {
     const url = "http://localhost:3000/social";
     const socialHistory = await fetch(url, { method: 'GET', headers: { 'Content-Type': 'application/json' } });

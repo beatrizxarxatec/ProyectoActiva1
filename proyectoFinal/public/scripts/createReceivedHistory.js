@@ -1,12 +1,10 @@
-async function createReceivedHistory() {
-    const currentUserId = sessionStorage.getItem('currentUserId');
 
-    const url = "http://localhost:3000/received?" + new URLSearchParams({ currentUserId: currentUserId });
-    const received = await fetch(url, { method: 'GET', headers: { 'Content-Type': 'application/json' } });
-    const receivedJSON = await received.json();
+let xp_sent = 0;
+let xp_received = 0;
+
+async function createReceivedHistory(receivedJSON) { // En la funcion loadAll le proporcionan el valor del parametro receivedJSON
     let receivedString = '';
     let receivedItem = '';
-    xp_sent = 0;
     for (let received of receivedJSON) {
         const theDate = new Date(received.date).toDateString();
         receivedItem = `
@@ -25,4 +23,13 @@ async function createReceivedHistory() {
     document.getElementById("elementosrecibidos").innerHTML = receivedString; // id="elementosenviados" está en 
 }
 
-window.addEventListener('load', createReceivedHistory); 
+async function loadAll() {
+    const rewardsJSON = await getSentHistoryJson(); // Esta función está en common.js
+    const receivedJSON = await getReceivedHistoryJson() // Esta función está en common.js
+    createReceivedHistory(receivedJSON);
+    xp_sent = getTotalSentPoints(rewardsJSON); // Esta función está en common.js
+    xp_received = getTotalReceiveddPoints(receivedJSON); // Esta función está en common.js
+    DrawGraphics(xp_sent, xp_received); // Esta función está en common.js
+}
+
+window.addEventListener('load', loadAll); 

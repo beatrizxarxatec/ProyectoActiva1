@@ -7,8 +7,17 @@
   <meta name="viewport" content="width=devicewidth, initial-scale=1.0">
   <link rel="stylesheet" href="style/stylePointsWhitSending.css">
   <title>Mis puntos</title>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/chartist/0.11.4/chartist.js"
+    integrity="sha512-jG3l4wynNj06R0w9JW1WZaCDPvhqa4yz8EAVjYzWqibarcn8JeFDyNtUytcr7Idx+laN7OQDaoDNmUAI4nB1qA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chartist/0.11.4/chartist.min.css"
+    integrity="sha512-V0+DPzYyLzIiMiWCg3nNdY+NyIiK9bED/T1xNBj08CaIUyK3sXRpB26OUCIzujMevxY9TRJFHQIxTwgzb0jVLg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
   <script src="./scripts/doLogout.js" async></script>
   <script src="./scripts/createStudentOptions.js" async></script>
+  <script src="./scripts/common.js" async></script>
   <script src="./scripts/createReceivedHistory.js" async></script>
 </head>
 
@@ -23,7 +32,7 @@
       <p>Ranking</p>
     </div>
     <div class="menuFoot">
-      <a href="#"><img src="public/iconosMenu/mi-perfil-gray.svg" alt="perfil"></a>
+      <a href="miPerfil.html"><img src="public/iconosMenu/mi-perfil-gray.svg" alt="perfil"></a>
       <p>Mi perfil</p>
     </div>
     <div class="menuFoot">
@@ -37,15 +46,17 @@
     <hr />
     <div id="divPiechart">
       <div class="color">
-        <div class="piechart1">
+        <!-- <div class="piechart1">
           <div id="numberpie1">350</div>
-        </div>
+        </div> -->
+        <div id="pieChart1"></div>
         <p class="pieText">DISPONIBLES<br> ¡Listos para enviar!</p>
       </div>
       <div>
-        <div class="piechart2">
+        <!-- <div class="piechart2">
           <div id="numberpie2">820</div>
-        </div>
+        </div> -->
+        <div id="pieChart2"></div>
         <p class="pieText">TOTAL<br> <span id="sendText">Enviados</span> | <span id="receibedText">Recibidos</span>
         </p>
       </div>

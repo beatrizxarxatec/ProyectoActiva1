@@ -1,10 +1,14 @@
 import express from 'express';
+import bodyParser from 'express';
 import {router} from './routes/router.js';
 import path from 'path';
 import {PORT} from './config.js'
 const methodOverride = require('method-override');
 
 const app = express();
+
+app.use(bodyParser.json({limit: '5mb'}));
+app.use(bodyParser.urlencoded({limit: '5mb', extended: true}));
 
 const path_static_files = path.join(__dirname, "..", "public");
 app.use(express.static(path_static_files));

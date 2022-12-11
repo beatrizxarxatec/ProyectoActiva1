@@ -1,7 +1,7 @@
 import { User } from "../types/User.js";
 import { db } from "../../config.js";
-import { RowDataPacket } from "mysql2";
-import { LoginResult } from "../types/LoginResult.js";
+import { OkPacket, RowDataPacket } from "mysql2";
+import { ChangePassData, LoginResult } from "../types/Auth.js";
 import { Student } from "../types/student.js";
 
 // CONSULTAS A LA BD
@@ -14,7 +14,7 @@ function checkUserLogin(user: User, callback: Function) {
     if (err || (result as RowDataPacket[]).length == 0) {
       isOk = false;
     }
-    else{
+    else {
       const student: Student = (<RowDataPacket>result)[0];
       email = user.email;
       studentId = student.id;
@@ -28,4 +28,34 @@ function checkUserLogin(user: User, callback: Function) {
   })
 };
 
-export { checkUserLogin };
+function getUser(user: User, callback: Function) {
+  const queryString = "SELECT * FROM user where email = ? AND password = ?"; // ? parametro
+  db.query(queryString, [user.email, user.password], (err, result) => {
+    if (err) {
+      callback(err, null);
+    }
+    else if ((result as RowDataPacket[]).length == 0) {
+      callback({ message: "Not found" }, null);
+    }
+    else {
+      const user: User = (<RowDataPacket>result)[0];
+      callback(null, user);
+    }
+  });
+};
+
+function changeUserPassword(user: User, callback: Function) {
+  const queryString = "UPDATE user SET password= ? WHERE id = ?"; // ? parametro
+  db.query(queryString, [user.password, user.id], (err, result) => {
+    if (err) {
+      callback(err, false);
+    }
+    else {
+      callback(null, true);
+    }
+  });
+
+}
+
+
+export { getUser, changeUserPassword, checkUserLogin };

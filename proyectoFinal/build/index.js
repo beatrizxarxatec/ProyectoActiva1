@@ -4,11 +4,14 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
+const express_2 = __importDefault(require("express"));
 const router_js_1 = require("./routes/router.js");
 const path_1 = __importDefault(require("path"));
 const config_js_1 = require("./config.js");
 const methodOverride = require('method-override');
 const app = (0, express_1.default)();
+app.use(express_2.default.json({ limit: '5mb' }));
+app.use(express_2.default.urlencoded({ limit: '5mb', extended: true }));
 const path_static_files = path_1.default.join(__dirname, "..", "public");
 app.use(express_1.default.static(path_static_files));
 app.use(express_1.default.urlencoded({ extended: false }));

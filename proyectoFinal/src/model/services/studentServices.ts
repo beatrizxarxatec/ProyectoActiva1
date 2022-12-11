@@ -2,6 +2,7 @@ import { Student } from "../types/student.js";
 import { db } from "../../config.js";
 import { OkPacket, RowDataPacket } from "mysql2";
 import { RankingPositionResult, Reward } from "../types/Reward.js";
+import { User } from "../types/User.js";
 
 function findSocialHistory(callback: Function) {
   const queryString = "select SN1.xp_points, SN1.description, SN1.date, SN1.rewarded_name, SN1.rewarded_first_surname, S2.first_surname as sender_first_surname, S2.name as sender_name from (select r.id_user_sender, r.id_user_rewarded, r.xp_points, r.description, r.date, s.name as rewarded_name, s.first_surname as rewarded_first_surname from reward as r inner join student as s on r.id_user_rewarded = s.id) as SN1 inner join student S2 on SN1.id_user_sender = S2.id ORDER by SN1.date desc limit 10";
@@ -72,17 +73,34 @@ function findRankingTop5(callback: Function) {
   })
 }
 
-function createStudent(student: Student, callback: Function) {
-  const queryString = "INSERT INTO student (name, first_surname, second_surname, email_personal, email_activa, phone_number, zip_code) VALUES (?, ?, ?, ?, ?, ?, ?)"
+function createUser(user: User, callback: Function) {
+  const queryString = "INSERT INTO user (email, password, role) VALUES (?, ?, ?)"
 
   db.query(
     queryString,
-    [student.name, student.firstSurname, student.secondSurname, student.personalEmailAddress, student.activaEmailAddress, student.phoneNumber, student.zipCode],
+    [user.email, user.password, user.role],
     (err, result) => {
       if (err) { callback(err, null) };
 
       const insertId = (<OkPacket>result).insertId;
       callback(null, insertId);
+    }
+  );
+};
+
+function createStudent(student: Student, callback: Function) {
+  const queryString = "INSERT INTO student (name, first_surname, second_surname, email_personal, email_activa, description, city, phone_number, zip_code, avatar, cv) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, BINARY(?), BINARY(?))"
+
+  db.query(
+    queryString,
+    [student.name, student.firstSurname, student.secondSurname, student.personalEmailAddress, student.activaEmailAddress, student.description, student.city, student.phoneNumber, student.zipCode, student.avatar, student.cv],
+    (err, result) => {
+      if (err) { 
+        callback(err, null);
+      }else{
+        const insertId = (<OkPacket>result).insertId;
+        callback(null, insertId);
+      }
     }
   );
 };
@@ -99,14 +117,14 @@ function findAllStudents(callback: Function) {
 
 function findOneStudent(id: string, callback: Function) {
 
-  const queryString = "SELECT name, first_surname, second_surname, email_personal, email_activa, phone_number, zip_code FROM student WHERE id = ?";
+  const queryString = "SELECT * FROM student WHERE id = ?";
   db.query(queryString, [id], (err, result) => {
     if (err) { callback(err, null) };
 
     const studentFound: Student = (<RowDataPacket>result)[0];
 
     callback(null, studentFound);
-  })
+  });
 }
 
 function findStudentsFiltered(callback: Function) {
@@ -122,4 +140,4 @@ function findStudentsFiltered(callback: Function) {
   })
 }
 
-export { findSocialHistory, addNewReward, findReceivedRewards, findRewards, createStudent, findAllStudents, findOneStudent, findStudentsFiltered, findRankingTop5, findUserRankingPosition };
+export { createUser, findSocialHistory, addNewReward, findReceivedRewards, findRewards, createStudent, findAllStudents, findOneStudent, findStudentsFiltered, findRankingTop5, findUserRankingPosition };

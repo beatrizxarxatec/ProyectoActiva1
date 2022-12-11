@@ -6,7 +6,7 @@ const db = mysql.createConnection({
   host: "localhost",
   user: "root",
   password: "MySQL22",
-  database: "proyecto_final"
+  database: "proyecto_final",
 });
 
 export {PORT, db};

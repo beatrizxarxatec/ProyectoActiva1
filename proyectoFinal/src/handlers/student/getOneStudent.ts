@@ -4,7 +4,7 @@ import {findOneStudent} from '../../model/services/studentServices.js';
 
 async function getOneStudent(req: express.Request, res: express.Response){
     const studentId = req.params.id_student;
-    findOneStudent(studentId, (err: Error, result:Student)=>{
+    findOneStudent(studentId, async (err: Error, result:Student)=>{
         if(err){
             res.status(404).json({"message": err.message});
         }

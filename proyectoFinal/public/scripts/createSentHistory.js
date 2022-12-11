@@ -1,14 +1,9 @@
 let xp_sent = 0;
+let xp_received = 0;
 
-async function createSentHistory() {
-    const currentUserId = sessionStorage.getItem('currentUserId');
-
-    const url = "http://localhost:3000/rewards?" + new URLSearchParams({ currentUserId: currentUserId });
-    const rewards = await fetch(url, { method: 'GET', headers: { 'Content-Type': 'application/json' } });
-    const rewardsJSON = await rewards.json();
+function createSentHistory(rewardsJSON) { // En la funcion loadAll le proporcionan el valor del parametro rewardsJSON
     let rewardsString = '';
     let rewardItem = '';
-    xp_sent = 0;
     for (let reward of rewardsJSON) {
         const theDate = new Date(reward.date).toDateString();
         rewardItem = `
@@ -23,28 +18,17 @@ async function createSentHistory() {
         </p>
         `;
         rewardsString += rewardItem;
-        xp_sent += reward.xp_points;
     }
     document.getElementById("elementosenviados").innerHTML = rewardsString;
 }
 
-// Creacion del grafico dinamico
-function loadAll() {
-    createSentHistory();
-    var data1 = {
-        series: [
-            { value: 350, name: "Enviados", className: "pieChartEnv",   meta: 'Meta One' },
-        ]
-    };
-    new Chartist.Pie('#pieChart1', data1, {classNames:{label: "numberPie"}});
-
-    var data2 = {
-        series: [
-            { value: 30, name: "Enviados", className: "pieChartEnv",   meta: 'Meta One' },
-            { value: 70, name: "Recibidos", className: "pieChartRec",  meta: 'Meta Two' },
-        ]
-    };
-    new Chartist.Pie('#pieChart2', data2, {classNames:{label: "numberPie"}});
+async function loadAll() {
+    const rewardsJSON = await getSentHistoryJson(); // Esta función está en common.js
+    const receivedJSON = await getReceivedHistoryJson() // Esta función está en common.js
+    createSentHistory(rewardsJSON);
+    xp_sent = getTotalSentPoints(rewardsJSON); // Esta función está en common.js
+    xp_received = getTotalReceiveddPoints(receivedJSON); // Esta función está en common.js
+    DrawGraphics(xp_sent, xp_received); // Esta función está en common.js
 }
 
 window.addEventListener('load', loadAll); 

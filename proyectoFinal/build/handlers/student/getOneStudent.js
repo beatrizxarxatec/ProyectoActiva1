@@ -14,12 +14,12 @@ const studentServices_js_1 = require("../../model/services/studentServices.js");
 function getOneStudent(req, res) {
     return __awaiter(this, void 0, void 0, function* () {
         const studentId = req.params.id_student;
-        (0, studentServices_js_1.findOneStudent)(studentId, (err, result) => {
+        (0, studentServices_js_1.findOneStudent)(studentId, (err, result) => __awaiter(this, void 0, void 0, function* () {
             if (err) {
                 res.status(404).json({ "message": err.message });
             }
             res.status(200).json(result);
-        });
+        }));
     });
 }
 exports.getOneStudent = getOneStudent;

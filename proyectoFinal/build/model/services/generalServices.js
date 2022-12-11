@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.checkUserLogin = void 0;
+exports.checkUserLogin = exports.changeUserPassword = exports.getUser = void 0;
 const config_js_1 = require("../../config.js");
 // CONSULTAS A LA BD
 function checkUserLogin(user, callback) {
@@ -27,3 +27,32 @@ function checkUserLogin(user, callback) {
 }
 exports.checkUserLogin = checkUserLogin;
 ;
+function getUser(user, callback) {
+    const queryString = "SELECT * FROM user where email = ? AND password = ?"; // ? parametro
+    config_js_1.db.query(queryString, [user.email, user.password], (err, result) => {
+        if (err) {
+            callback(err, null);
+        }
+        else if (result.length == 0) {
+            callback({ message: "Not found" }, null);
+        }
+        else {
+            const user = result[0];
+            callback(null, user);
+        }
+    });
+}
+exports.getUser = getUser;
+;
+function changeUserPassword(user, callback) {
+    const queryString = "UPDATE user SET password= ? WHERE id = ?"; // ? parametro
+    config_js_1.db.query(queryString, [user.password, user.id], (err, result) => {
+        if (err) {
+            callback(err, false);
+        }
+        else {
+            callback(null, true);
+        }
+    });
+}
+exports.changeUserPassword = changeUserPassword;

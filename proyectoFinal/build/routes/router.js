@@ -16,6 +16,8 @@ const getReceivedRewards_js_1 = require("../handlers/student/getReceivedRewards.
 const getRanking_js_1 = require("../handlers/student/getRanking.js");
 const getUserRankingPosition_js_1 = require("../handlers/student/getUserRankingPosition.js");
 const getSocialHistory_js_1 = require("../handlers/student/getSocialHistory.js");
+const registerUser_js_1 = require("../handlers/student/registerUser.js");
+const changePassword_js_1 = require("../handlers/student/changePassword.js");
 const router = express_1.default.Router();
 exports.router = router;
 router.post("/students", insertStudent_js_1.insertStudent);
@@ -29,3 +31,5 @@ router.get("/received", getReceivedRewards_js_1.getReceivedRewards);
 router.get("/top5", getRanking_js_1.getRankingTop5);
 router.get("/currentpos", getUserRankingPosition_js_1.getUserRankingPosition);
 router.get("/social", getSocialHistory_js_1.getSocialHistory);
+router.post("/register", registerUser_js_1.registerUser);
+router.post("/password", changePassword_js_1.changePassword);

@@ -1,7 +1,7 @@
 import express from 'express';
-import {insertStudent} from "../handlers/student/insertStudent.js";
-import {getStudents} from '../handlers/student/getStudents.js';
-import {getOneStudent} from '../handlers/student/getOneStudent.js';
+import { insertStudent } from "../handlers/student/insertStudent.js";
+import { getStudents } from '../handlers/student/getStudents.js';
+import { getOneStudent } from '../handlers/student/getOneStudent.js';
 import { getStudentsFiltered } from '../handlers/student/getStudentsFiltered.js';
 import { checkLogin } from '../handlers/student/checkLogin.js';
 import { addReward } from '../handlers/student/addReward.js';
@@ -10,10 +10,12 @@ import { getReceivedRewards } from '../handlers/student/getReceivedRewards.js';
 import { getRankingTop5 } from '../handlers/student/getRanking.js';
 import { getUserRankingPosition } from '../handlers/student/getUserRankingPosition.js';
 import { getSocialHistory } from '../handlers/student/getSocialHistory.js';
+import { registerUser } from '../handlers/student/registerUser.js';
+import { changePassword } from '../handlers/student/changePassword.js';
 
 const router = express.Router();
 
-router.post("/students",insertStudent);
+router.post("/students", insertStudent);
 
 router.get("/students", getStudents);
 
@@ -35,6 +37,8 @@ router.get("/currentpos", getUserRankingPosition);
 
 router.get("/social", getSocialHistory);
 
+router.post("/register", registerUser);
 
+router.post("/password", changePassword);
 
-export {router};
+export { router };
