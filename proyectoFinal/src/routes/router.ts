@@ -35,4 +35,6 @@ router.get("/currentpos", getUserRankingPosition);
 
 router.get("/social", getSocialHistory);
 
+
+
 export {router};
