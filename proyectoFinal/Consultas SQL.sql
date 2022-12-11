@@ -1,14 +1,4 @@
--- insert into student (name, first_surname, second_surname, email_personal, email_activa, phone_number, zip_code)
--- values ('Juan', 'Galdos', 'Sueco', 'juan@gmail.com', 'juan@xarxatec.com','654566389', '12005')
--- values ('Raul', 'Suarez', 'Torres', 'raul@gmail.com', 'raul@xarxatec.com','624657847', '12003')
--- values ('Maria', 'Rodríguez', 'García', 'maria@gmail.com', 'maria@xarxatec.com','613458976', '12001')
--- values ('Esteban', 'Delgado', 'Santana', 'esteban@gmail.com', 'esteban@xarxatec.com','675849354', '12004')
-
--- SELECT name, first_surname, second_surname, email_personal, email_activa, phone_number, zip_code 
--- FROM student as s
--- WHERE s.second_surname is not null and s.email_personal like '%@gmail.com'
-
--- use proyecto_final;
+use proyecto_final;
 
 -- insert into user (email, password, role)
 -- values ('juan@host.com', 'mypass', 'user')
@@ -23,6 +13,18 @@
 
 -- delete from student where id = 6
 
-select *from user;
+-- select *from user;
+
+-- SELECT s.id, s.email_personal FROM user u inner join student s on s.email_personal = u.email where email = ? AND password = ?
+
+-- select * from reward
+-- (select *, ROW_NUMBER() OVER (ORDER BY (SELECT 1)) as position from 
+-- (select r.id_user_rewarded, sum(r.xp_points) as all_xp_points, s.name, s.first_surname from reward as r inner join student as s on r.id_user_rewarded = s.id group by r.id_user_rewarded order by all_xp_points DESC) as SN1) as SN2
+-- where SN2.id_user_rewarded = 2
+
+select SN1.xp_points, SN1.description, SN1.date, SN1.rewarded_name, SN1.rewarded_first_surname, S2.first_surname as sender_first_surname, S2.name as sender_name from 
+(select r.id_user_sender, r.id_user_rewarded, r.xp_points, r.description, r.date, s.name as rewarded_name, s.first_surname as rewarded_first_surname from reward as r inner join student as s on r.id_user_rewarded = s.id) as SN1 
+inner join student S2 on SN1.id_user_sender = S2.id ORDER by SN1.date desc limit 10;
+
 
 

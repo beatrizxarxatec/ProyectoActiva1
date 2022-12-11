@@ -22,7 +22,7 @@ async function createRankingHistory() {
     document.getElementById("historialRanking").innerHTML = rankingString; // id="historialRanking" está en ranking.html
 }
 
-async function setRankingPosition() {
+async function setRankingPosition() { // Puesto actual
     const currentUserId = sessionStorage.getItem('currentUserId');
     const url = "http://localhost:3000/currentpos?" + new URLSearchParams({ currentUserId: currentUserId });
     const ranking = await fetch(url, { method: 'GET', headers: { 'Content-Type': 'application/json' } });

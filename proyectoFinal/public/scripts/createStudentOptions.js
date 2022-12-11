@@ -17,7 +17,7 @@ async function createOptionsForSelectStudent() {
 
 window.addEventListener('load', createOptionsForSelectStudent);
 
-// Para que se oculte el ususario que se logeo
+// Para enviar el id del usuario como un campo oculto
 
 const usuarioHidden = document.getElementById("usuario")
 if(usuarioHidden) {

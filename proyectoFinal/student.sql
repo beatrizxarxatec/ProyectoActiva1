@@ -11,15 +11,22 @@ use proyecto_final;
 -- select r.id_user_rewarded, sum(r.xp_points) as all_xp_points, s.name, s.first_surname from reward as r inner join student as s on r.id_user_rewarded = s.id group by r.id_user_rewarded order by all_xp_points DESC limit 5
 -- order by date DESC
 
-delete from student where id = 36;
-delete from user where id > 0;
-delete from reward where id > 0;
+-- delete from student where id = 36;
+-- delete from user where id  = 63;
+-- delete from reward where id > 0;
 
 -- SELECT * FROM user WHERE email = 'tony@host.com' AND password = 'mypass12'; 
 
 -- UPDATE user SET password="mypass" WHERE id = 1;
 
-select * from user;
+-- select * from user;
 select * from student;
 
 ALTER TABLE student MODIFY COLUMN cv longblob;
+
+ALTER TABLE reward DROP CONSTRAINT reward_fk1;
+ALTER TABLE `reward` ADD CONSTRAINT `reward_fk0` FOREIGN KEY (`id_user_sender`) REFERENCES `student`(`id`);
+ALTER TABLE `reward` ADD CONSTRAINT `reward_fk1` FOREIGN KEY (`id_user_rewarded`) REFERENCES `student`(`id`);
+
+delete from student where id>39
+

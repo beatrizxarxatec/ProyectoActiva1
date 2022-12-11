@@ -8,4 +8,6 @@ use proyecto_final;
 
 SELECT * FROM reward;
 
-delete from reward where id = 5
+-- delete from reward where id = 5
+
+delete from reward where id =145
