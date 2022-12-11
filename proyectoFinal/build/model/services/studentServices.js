@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.findUserRankingPosition = exports.findRankingTop5 = exports.findStudentsFiltered = exports.findOneStudent = exports.findAllStudents = exports.createStudent = exports.findRewards = exports.findReceivedRewards = exports.addNewReward = exports.findSocialHistory = exports.createUser = void 0;
+exports.findUserRankingPosition = exports.findRankingTop5 = exports.findOneStudent = exports.findAllStudents = exports.createStudent = exports.findRewards = exports.findReceivedRewards = exports.addNewReward = exports.findSocialHistory = exports.createUser = void 0;
 const config_js_1 = require("../../config.js");
 function findSocialHistory(callback) {
     const queryString = "select SN1.xp_points, SN1.description, SN1.date, SN1.rewarded_name, SN1.rewarded_first_surname, S2.first_surname as sender_first_surname, S2.name as sender_name from (select r.id_user_sender, r.id_user_rewarded, r.xp_points, r.description, r.date, s.name as rewarded_name, s.first_surname as rewarded_first_surname from reward as r inner join student as s on r.id_user_rewarded = s.id) as SN1 inner join student S2 on SN1.id_user_sender = S2.id ORDER by SN1.date desc limit 10";
@@ -118,15 +118,3 @@ function findOneStudent(id, callback) {
     });
 }
 exports.findOneStudent = findOneStudent;
-function findStudentsFiltered(callback) {
-    const queryString = "SELECT name, first_surname, second_surname, email_personal, email_activa, phone_number, zip_code " +
-        "FROM student " +
-        "WHERE second_surname is not null and email_personal like '%@gmail.com'";
-    config_js_1.db.query(queryString, (err, result) => {
-        if (err)
-            callback(err, null);
-        const students = result;
-        callback(null, students);
-    });
-}
-exports.findStudentsFiltered = findStudentsFiltered;
