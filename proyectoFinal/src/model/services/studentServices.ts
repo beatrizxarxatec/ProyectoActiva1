@@ -127,17 +127,5 @@ function findOneStudent(id: string, callback: Function) {
   });
 }
 
-function findStudentsFiltered(callback: Function) {
-  const queryString = "SELECT name, first_surname, second_surname, email_personal, email_activa, phone_number, zip_code " +
-    "FROM student " +
-    "WHERE second_surname is not null and email_personal like '%@gmail.com'";
 
-  db.query(queryString, (err, result) => {
-    if (err) callback(err, null);
-
-    const students = result;
-    callback(null, students);
-  })
-}
-
-export { createUser, findSocialHistory, addNewReward, findReceivedRewards, findRewards, createStudent, findAllStudents, findOneStudent, findStudentsFiltered, findRankingTop5, findUserRankingPosition };
+export { createUser, findSocialHistory, addNewReward, findReceivedRewards, findRewards, createStudent, findAllStudents, findOneStudent, findRankingTop5, findUserRankingPosition };
